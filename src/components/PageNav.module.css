@@ -1,0 +1,52 @@
+/* Never use normal element selector
+Because it can select all ul elements from entire DOM
+CSS modules should only have component scope
+Always use classes  */
+/* ul {
+  list-style: none;
+} */
+
+/*:global() allows us to use class styles in other components
+and doesnt add unique key to the end of class name
+If we have component with class "active" we have to use :global()
+because then the class name will match, otherwise the real class name
+from css will be e.g "_active_gwk12jv" */
+/* 
+:global(.test) {
+  background-color: red;
+} */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.nav a:link,
+.nav a:visited {
+  text-decoration: none;
+  color: var(--color-light--2);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* CSS Modules feature */
+.nav a:global(.active) {
+  color: var(--color-brand--2);
+}
+
+a.ctaLink:link,
+a.ctaLink:visited {
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--0);
+  padding: 0.8rem 2rem;
+  border-radius: 7px;
+}
