@@ -1,8 +1,46 @@
-# React + Vite
+# 🌍 WorldWise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+WorldWise is a web application for tracking places you've visited around the world. Click on the map, mark your travels, and add personal notes to each location.
 
-Currently, two official plugins are available:
+> ⚠ This project was built as part of the React course by Jonas Schmedtmann on Udemy.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 💻 Demo
+
+See the live app: https://worldwise-zeta-five.vercel.app  
+API: https://worldwise-server-oel6.onrender.com/cities
+![WorldWise app layout](image.png)
+
+## 🛠 Technologies
+
+- **React**
+- **React Router**
+- **React Leaflet**
+- **Custom Providers and Hooks**
+- **CSS Modules**
+- **Context API + useReducer**
+
+## ✨ Features
+
+- Add locations by clicking on the map
+- Attach notes and travel dates to each place
+- Interactive map with custom markers
+- View a list of all visited locations
+- locate your location using geolocation
+
+## 🚀 Run project locally
+
+1. Clone the repo `https://github.com/Tesa44/WorldWise.git`
+2. Install dependences `npm install`
+3. Change `BASE_URL` in `CitiesContext.jsx` to `http://localhost:8000`
+4. Run fake API server `npm run server`
+5. Open new terminal and run app `npm run dev`
+6. App will be available under `http://localhost:5173`
+
+## 📌 Roadmap
+
+- Implement real authentication
+- Replace json-server API to database
+
+## 👤 Author
+
+Mateusz Tesarewicz
