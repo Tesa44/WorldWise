@@ -8,7 +8,7 @@ WorldWise is a web application for tracking places you've visited around the wor
 
 See the live app: https://worldwise-zeta-five.vercel.app  
 API: https://worldwise-server-oel6.onrender.com/cities
-![WorldWise app layout](image.png)
+<img width="1870" height="903" alt="obraz" src="https://github.com/user-attachments/assets/32db11a3-fd0e-4e75-a00c-657f17b1d4fa" />
 
 ## 🛠 Technologies
 
