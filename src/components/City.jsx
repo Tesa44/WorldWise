@@ -24,7 +24,12 @@ function City() {
     function () {
       getCity(id);
     },
-    [id]
+    [id, getCity]
+
+    // Missing dependency - getCity
+    // If we pass getCity there, we will get infinite loop, because getCity function updates state (runs dispatch func in CitiesContext)
+    // Every time the state is updated, the component (CitiesConxtex) is recreated and func getCity is also recreated, so it is updated
+    // And every getCity update runs Effect. We need to make this function stable using useCallback hook.
   );
 
   const { cityName, emoji, date, notes } = currentCity;

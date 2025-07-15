@@ -1,7 +1,14 @@
-import { createContext, useEffect, useContext, useReducer } from "react";
+import {
+  createContext,
+  useEffect,
+  useContext,
+  useReducer,
+  useCallback,
+} from "react";
 import PropTypes from "prop-types";
 
-const BASE_URL = "https://worldwise-server-oel6.onrender.com";
+// const BASE_URL = "https://worldwise-server-oel6.onrender.com";
+const BASE_URL = "http://localhost:8000";
 
 const CitiesContext = createContext();
 
@@ -77,21 +84,25 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, []);
 
-  async function getCity(id) {
-    if (Number(id) === currentCity.id) return;
+  // This func need to be stable. See City.jsx
+  const getCity = useCallback(
+    async function getCity(id) {
+      if (Number(id) === currentCity.id) return;
 
-    dispatch({ type: "loading" });
-    try {
-      const res = await fetch(`${BASE_URL}/cities/${id}`);
-      const data = await res.json();
-      dispatch({ type: "city/loaded", payload: data });
-    } catch (err) {
-      dispatch({
-        type: "rejected",
-        payload: "There was an error getting a city...",
-      });
-    }
-  }
+      dispatch({ type: "loading" });
+      try {
+        const res = await fetch(`${BASE_URL}/cities/${id}`);
+        const data = await res.json();
+        dispatch({ type: "city/loaded", payload: data });
+      } catch (err) {
+        dispatch({
+          type: "rejected",
+          payload: "There was an error getting a city...",
+        });
+      }
+    },
+    [currentCity.id]
+  );
 
   async function createCity(newCity) {
     dispatch({ type: "loading" });
